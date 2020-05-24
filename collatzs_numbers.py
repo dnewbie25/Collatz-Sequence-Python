@@ -1,3 +1,5 @@
+import sys
+
 def collatz(number):
   
   if number % 2 == 0:
@@ -9,7 +11,12 @@ def collatz(number):
 
 def userInput():
   print("Please enter an integer number")
-  number_to_use = int(input())
+  try:
+    number_to_use = int(input())
+  except ValueError:
+    print("Entered a valid value")
+    sys.exit()
+  
   result = 0
 
   while collatz(number_to_use)>=1:
